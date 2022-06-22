@@ -1,0 +1,75 @@
+@import "./fonts";
+@import "./typography";
+
+:root {
+  --primary-base-color: var(
+    --imported-primary-base-color,
+    #{$default-primary-base-color}
+  );
+  --primary-light-color: var(
+    --imported-primary-light-color,
+    #{$default-primary-light-color}
+  );
+  --primary-dark-color: var(
+    --imported-primary-dark-color,
+    #{$default-primary-dark-color}
+  );
+  --secondary-base-color: var(
+    --imported-secondary-base-color,
+    #{$default-secondary-base-color}
+  );
+  --secondary-dark-color: var(
+    --imported-secondary-dark-color,
+    #{$default-secondary-dark-color}
+  );
+  --secondary-light-color: var(
+    --imported-secondary-light-color,
+    #{$default-secondary-light-color}
+  );
+
+  --primary-font-family: var(
+    --imported-primary-font-family,
+    #{$primary-font-family}
+  );
+  --primary-font-family-font-weight-medium: var(
+    --imported-primary-font-family-font-weight-medium,
+    #{$primary-font-family-font-weight-medium}
+  );
+  --primary-font-family-font-weight-bold: var(
+    --imported-primary-font-family-font-weight-bold,
+    #{$primary-font-family-font-weight-bold}
+  );
+
+  --secondary-font-family: var(
+    --imported-secondary-font-family,
+    #{$secondary-font-family}
+  );
+  --secondary-font-family-font-weight-medium: var(
+    --imported-secondary-font-family-font-weight-medium,
+    #{$secondary-font-family-font-weight-medium}
+  );
+
+  --font-size-medium: var(--imported-font-size-medium, #{$font-size-medium});
+  --font-size-small: var(--imported-font-size-small, #{$font-size-small});
+
+  --footer-primary-color: var(
+    --imported-footer-primary-color,
+    #{$footer-primary-color}
+  );
+}
+
+body {
+  margin: 0;
+  padding: 0px;
+
+  font-family: var(--primary-font-family);
+
+  // TODO:
+  // [] check if applied to child elements
+  // font-weight: var(--font-weight);
+  // font-size: var(--font-size-large);
+
+  color: var(--primary-light-color);
+
+  background-color: var(--secondary-dark-color);
+}
