@@ -7,7 +7,11 @@ const App = () => {
   return (
     <>
       <StatsCardContainer>
-        <StatsCard />
+        <StatsCard>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+          accusantium dolorum explicabo officia distinctio eligendi fugit
+          corrupti qui molestias facilis!
+        </StatsCard>
       </StatsCardContainer>
       <Footer />
     </>
