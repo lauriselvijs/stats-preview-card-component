@@ -1,43 +1,34 @@
-import React, {
-  ReactElement,
-  createContext,
-  useContext,
-  useState,
-  Dispatch,
-  SetStateAction,
-} from "react";
+import React, { useState } from "react";
+import { StatsCardContext } from "../../context/StatCardsContext";
+import { IStatsCard } from "../../types/StatsCard";
+import {
+  StatsCardFooterContainer,
+  StatsCardFooterItem,
+  StatsCardFooterTitle,
+  StatsCardFooterDesc,
+} from "./StatsCardFooter";
+import {
+  StatsCardDesc,
+  StatsCardInfoContainer,
+  StatsCardTitle,
+  StatsCardTitleAccent,
+} from "./StatsCardInfoSection";
+import { StatsCardLeftSection } from "./StatsCardLeftSection";
+import { StatsCardRightSection } from "./StatsCardRightSection";
 
-interface IStatsCard {
-  children: ReactElement[] | string;
-  style?: React.CSSProperties;
-}
-
-interface IStatsCardContext {
-  darkMode: boolean;
-  setDarkMode: Dispatch<SetStateAction<boolean>>;
-}
-
-const StatsCardContext = createContext<IStatsCardContext | undefined>(
-  undefined
-);
-
-export const useStatsCardContext = () => {
-  const context = useContext(StatsCardContext);
-
-  if (!context) {
-    throw new Error("Must be used inside stats card context provider");
-  }
-  return context;
-};
+import "./StatsCard.style.scss";
 
 const StatsCard = ({ children, ...restProps }: IStatsCard) => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [clickMode, setClickMode] = useState<boolean>(false);
 
   return (
-    <StatsCardContext.Provider value={{ darkMode, setDarkMode }}>
+    <StatsCardContext.Provider value={{ clickMode, setClickMode }}>
       <div
-        className={darkMode ? "stats-card-dark-mode" : "stats-card"}
+        className={
+          clickMode ? "stats-card stats-card--clicked-mode" : "stats-card"
+        }
         {...restProps}
+        onClick={() => setClickMode(!clickMode)}
       >
         {children}
       </div>
@@ -45,56 +36,17 @@ const StatsCard = ({ children, ...restProps }: IStatsCard) => {
   );
 };
 
-const StatsCardTitle = ({ children, ...restProps }: IStatsCard) => {
-  const { darkMode, setDarkMode } = useStatsCardContext();
+StatsCard.LeftSection = StatsCardLeftSection;
+StatsCard.RightSection = StatsCardRightSection;
 
-  return (
-    <h1
-      className={darkMode ? "stats-card-title-dark-mode" : "stats-card-title"}
-      {...restProps}
-      onClick={() => setDarkMode(!darkMode)}
-    >
-      {children}
-    </h1>
-  );
-};
-
+StatsCard.InfoContainer = StatsCardInfoContainer;
 StatsCard.Title = StatsCardTitle;
-
-const StatsCardDesc = ({ children, ...restProps }: IStatsCard) => {
-  const { darkMode, setDarkMode } = useStatsCardContext();
-
-  return (
-    <p
-      className={darkMode ? "stats-card-desc-dark-mode" : "stats-card-desc"}
-      {...restProps}
-      onClick={() => setDarkMode(!darkMode)}
-    >
-      {children}
-    </p>
-  );
-};
-
+StatsCard.TitleAccent = StatsCardTitleAccent;
 StatsCard.Desc = StatsCardDesc;
 
-const StatsCardAddInfoTitle = ({ children, ...restProps }: IStatsCard) => {
-  const { darkMode, setDarkMode } = useStatsCardContext();
-
-  return (
-    <h2
-      className={
-        darkMode
-          ? "stats-card-add-info-title-dark-mode"
-          : "stats-card-add-info-title"
-      }
-      {...restProps}
-      onClick={() => setDarkMode(!darkMode)}
-    >
-      {children}
-    </h2>
-  );
-};
-
-StatsCardAddInfoTitle.Desc = StatsCardAddInfoTitle;
+StatsCard.FooterContainer = StatsCardFooterContainer;
+StatsCard.FooterItem = StatsCardFooterItem;
+StatsCard.FooterTitle = StatsCardFooterTitle;
+StatsCard.FooterDesc = StatsCardFooterDesc;
 
 export default StatsCard;

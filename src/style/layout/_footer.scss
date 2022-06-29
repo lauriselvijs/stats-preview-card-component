@@ -1,9 +1,8 @@
 footer {
-  .attribution {
-    font-size: var(--font-size-small);
-    text-align: center;
-  }
-  .attribution a {
+  font-size: var(--font-size-small);
+  text-align: center;
+
+  a {
     color: var(--footer-primary-color);
   }
 }

@@ -1,15 +1,15 @@
 .light-theme {
-  --primary-base-color: var(
-    --imported-light-theme-primary-base-color,
-    #{lighten(invert($default-primary-base-color), 11)}
+  --primary-color: var(
+    --imported-light-theme-primary-color,
+    #{lighten(invert($default-primary-color), 11)}
   );
   --primary-light-color: var(
     --imported-light-theme-primary-light-color,
     #{invert($default-primary-light-color)}
   );
-  --secondary-base-color: var(
-    --imported-light-theme-secondary-base-color,
-    #{lighten($default-secondary-base-color, 80)}
+  --secondary-color: var(
+    --imported-light-theme-secondary-color,
+    #{lighten($default-secondary-color, 80)}
   );
   --secondary-light-color: var(
     --imported-light-theme-secondary-light-color,
