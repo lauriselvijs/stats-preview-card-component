@@ -12,7 +12,7 @@ const config: Configuration = {
   mode: "production",
   entry: path.resolve(__dirname, "..", "./src/index.tsx"),
   output: {
-    path: path.resolve(__dirname, "..", "build"),
+    path: path.resolve(__dirname, "..", "dist"),
     filename: "static/js/main.[contenthash].js",
     clean: true,
     assetModuleFilename: "static/media/[name].[contenthash][ext]",
