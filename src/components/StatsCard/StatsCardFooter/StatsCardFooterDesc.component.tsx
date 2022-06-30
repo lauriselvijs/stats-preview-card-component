@@ -11,7 +11,7 @@ const StatsCardFooterDesc = ({ children, ...restProps }: IStatsCard) => {
       className={
         clickMode
           ? "stats-card__footer-desc stats-card__footer-desc--clicked-mode"
-          : ""
+          : "stats-card__footer-desc"
       }
       {...restProps}
     >

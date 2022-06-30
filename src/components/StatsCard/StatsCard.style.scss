@@ -13,6 +13,11 @@
 
   transition: width 1s, height 1s;
 
+  &--clicked-mode {
+    color: var(--primary-dark-color);
+    background-color: var(--primary-light-color);
+  }
+
   &__left-section {
     padding-left: 65px;
     height: 100%;
@@ -67,8 +72,20 @@
     gap: 5px;
   }
 
-  &__title--accent {
+  &__title-accent {
     color: var(--primary-light-color);
+
+    &--clicked-mode {
+      color: var(--primary-color);
+    }
+  }
+
+  &__desc--clicked-mode {
+    color: var(--primary-dark-color);
+  }
+
+  &__footer-desc--clicked-mode {
+    color: var(--primary-dark-color);
   }
 }
 

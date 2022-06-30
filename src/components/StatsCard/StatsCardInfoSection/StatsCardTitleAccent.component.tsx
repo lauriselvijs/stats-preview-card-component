@@ -10,8 +10,8 @@ const StatsCardTitleAccent = ({ children, ...restProps }: IStatsCard) => {
     <span
       className={
         clickMode
-          ? "stats-card__title--accent stats-card__title-accent--clicked-mode"
-          : "stats-card__title--accent"
+          ? "stats-card__title-accent stats-card__title-accent--clicked-mode"
+          : "stats-card__title-accent"
       }
       {...restProps}
     >

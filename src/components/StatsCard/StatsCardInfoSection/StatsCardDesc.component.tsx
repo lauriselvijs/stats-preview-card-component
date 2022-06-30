@@ -9,7 +9,9 @@ const StatsCardDesc = ({ children, ...restProps }: IStatsCard) => {
   return (
     <p
       className={
-        clickMode ? "stats-card__desc stats-card__desc--clicked-mode" : ""
+        clickMode
+          ? "stats-card__desc stats-card__desc--clicked-mode"
+          : "stats-card__desc"
       }
       {...restProps}
     >

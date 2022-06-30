@@ -3,5 +3,10 @@ h1 {
   margin-bottom: 30px;
   font-size: var(--font-size-large);
   font-weight: var(--primary-font-family-font-weight-bold);
-  text-align: center;
+}
+
+@include mobile {
+  h1 {
+    text-align: center;
+  }
 }

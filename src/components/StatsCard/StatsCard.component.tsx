@@ -24,6 +24,7 @@ const StatsCard = ({ children, ...restProps }: IStatsCard) => {
   return (
     <StatsCardContext.Provider value={{ clickMode, setClickMode }}>
       <div
+        title="Click me!"
         className={
           clickMode ? "stats-card stats-card--clicked-mode" : "stats-card"
         }
