@@ -11,6 +11,8 @@
   height: 446px;
   background-color: var(--primary-color);
 
+  transition: width 1s, height 1s;
+
   &__left-section {
     padding-left: 65px;
     height: 100%;
@@ -29,17 +31,15 @@
     border-radius: 0px 12px 12px 0px;
 
     background-image: url("../../assets/images/image-header-desktop.jpg");
+    background-repeat: no-repeat;
 
     &::before {
       content: "";
       display: block;
       width: 100%;
       height: 100%;
-
-      //TODO:
-      // [] implement var color using sass functions
-      // [] test if filter work
-      background-color: hsl(277deg, 100%, 25%);
+      border-radius: 0px 12px 12px 0px;
+      background-color: var(--primary-light-color);
       opacity: 0.6;
     }
   }
@@ -69,5 +69,65 @@
 
   &__title--accent {
     color: var(--primary-light-color);
+  }
+}
+
+@include mobile {
+  .stats-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 370px;
+    height: 860px;
+
+    transition: width 1s, height 1s;
+
+    &__right-section {
+      order: 1;
+      width: 100%;
+      height: 46%;
+
+      border-radius: 12px 12px 0px 0px;
+      background-image: url("../../assets/images/image-header-mobile.jpg");
+      background-size: contain;
+
+      &::before {
+        height: 99.7%;
+        border-radius: 12px 12px 0px 0px;
+      }
+    }
+
+    &__left-section {
+      width: 80%;
+      padding-left: 0px;
+      order: 2;
+
+      align-items: center;
+      gap: 40px;
+    }
+
+    &__info-container {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__footer-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    &__footer-item {
+      align-items: center;
+    }
   }
 }
