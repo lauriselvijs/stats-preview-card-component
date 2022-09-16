@@ -10,6 +10,9 @@ This is a solution to the [Stats preview card component challenge on Frontend Me
     - [The challenge](#the-challenge)
     - [Screenshot](#screenshot)
     - [Links](#links)
+  - [Installation](#installation)
+    - [Steps to Setup](#steps-to-setup)
+    - [Steps to Run](#steps-to-run)
   - [My process](#my-process)
     - [Built with](#built-with)
     - [What I learned](#what-i-learned)
@@ -31,6 +34,17 @@ Users should be able to:
 
 ![Stats preview card component desktop](https://user-images.githubusercontent.com/85683069/176662913-fedd34e3-575a-4219-a959-5f5b5549a5d4.png)
 ![Stats preview card component mobile](https://user-images.githubusercontent.com/85683069/176662919-80b5b0e3-46b3-47a0-bda0-7b4331edba0d.png)
+
+## Installation
+
+### Steps to Setup
+
+1. Have node JS installed.
+2. In the project root directory, run <code>npm install</code>
+
+### Steps to Run
+
+1. In the project root directory, run <code>npm run start</code>
 
 ### Links
 
