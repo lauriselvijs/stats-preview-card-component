@@ -2,7 +2,7 @@ version: "3"
 services:
   react-app:
     build: ./
-    container_name: react-app-container
+    container_name: stats-preview-card-component
     ports:
       - 3000:3000
     volumes:

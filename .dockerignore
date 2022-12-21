@@ -1,2 +1,8 @@
-node_modules
-build
+# development
+/.vscode
+
+# dependencies
+/node_modules
+
+# production
+/build
