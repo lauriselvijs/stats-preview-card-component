@@ -9,8 +9,8 @@
       "@babel/plugin-transform-runtime",
       {
         "regenerator": true
-      },
-      "transform-rebem-jsx"
-    ]
+      }
+    ],
+    "transform-rebem-jsx"
   ]
 }

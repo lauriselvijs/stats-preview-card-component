@@ -15,7 +15,6 @@ const devServer: DevServerConfiguration = {
     index: "build/index.html",
   },
   compress: true,
-  hot: true,
   open: true,
   port: 3000,
 };
@@ -33,13 +32,6 @@ const config: Configuration = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
-          options: {
-            presets: [
-              "@babel/preset-env",
-              "@babel/preset-react",
-              "@babel/preset-typescript",
-            ],
-          },
         },
       },
       {
@@ -82,11 +74,13 @@ const config: Configuration = {
       extensions: ["js", "jsx", "ts", "tsx"],
     }),
     new HotModuleReplacementPlugin(),
-    // new webpack.DefinePlugin({
-    //   "process.env": {
-    //     NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-    //   },
-    // }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        REBEM_MOD_DELIM: JSON.stringify("_"),
+        REBEM_ELEM_DELIM: JSON.stringify("-"),
+      },
+    }),
   ],
   devtool: "source-map",
   devServer,

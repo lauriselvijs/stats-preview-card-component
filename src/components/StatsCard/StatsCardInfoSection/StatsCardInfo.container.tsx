@@ -4,7 +4,7 @@ import "./../StatsCard.style.scss";
 
 const StatsCardInfoContainer = ({ children, ...restProps }: StatsCard) => {
   return (
-    <div className="StatsCardInfoContainer" {...restProps}>
+    <div block="StatsCard" elem="InfoContainer" {...restProps}>
       {children}
     </div>
   );

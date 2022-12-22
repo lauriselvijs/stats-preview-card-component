@@ -14,9 +14,8 @@
     color: var(--primary-dark-color);
   }
 
-  &LeftSection {
+  &-LeftSection {
     align-items: flex-start;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     gap: 80px;
@@ -26,18 +25,28 @@
     width: 50%;
   }
 
-  &RightSection {
-    width: 50%;
-    height: 100%;
-    border-radius: 0px 12px 12px 0px;
+  &-RightSection {
+    position: relative;
     background-image: url("../../assets/images/image-header-desktop.jpg");
     background-repeat: no-repeat;
-    filter: opacity(0.5);
-
+    border-radius: 0px 12px 12px 0px;
+    cursor: pointer;
+    height: 100%;
     transition: all 1s;
+    width: 50%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: var(--primary-light-color);
+      width: 100%;
+      height: 100%;
+      border-radius: 0px 12px 12px 0px;
+      opacity: 0.5;
+    }
   }
 
-  &InfoContainer {
+  &-InfoContainer {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -45,21 +54,21 @@
     width: 75%;
   }
 
-  &FooterContainer {
+  &-FooterContainer {
     align-items: center;
     display: flex;
     justify-content: space-between;
     width: 75%;
   }
 
-  &FooterItem {
+  &-FooterItem {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
 
-  &TitleAccent {
+  &-TitleAccent {
     color: var(--primary-light-color);
 
     &_Clicked {
@@ -67,12 +76,16 @@
     }
   }
 
-  &Desc_Clicked {
-    color: var(--primary-dark-color);
+  &-Desc {
+    &_Clicked {
+      color: var(--primary-dark-color);
+    }
   }
 
-  &FooterDesc_Clicked {
-    color: var(--primary-dark-color);
+  &-FooterDesc {
+    &_Clicked {
+      color: var(--primary-dark-color);
+    }
   }
 }
 
@@ -86,15 +99,7 @@
     transition: width 1s, height 1s;
     width: 370px;
 
-    &RightSection {
-      background-image: url("../../assets/images/image-header-mobile.jpg");
-      background-size: cover;
-      border-radius: 12px 12px 0px 0px;
-      order: 1;
-      width: 100%;
-    }
-
-    &LeftSection {
+    &-LeftSection {
       align-items: center;
       gap: 40px;
       order: 2;
@@ -102,7 +107,19 @@
       width: 80%;
     }
 
-    &InfoContainer {
+    &-RightSection {
+      background-image: url("../../assets/images/image-header-mobile.jpg");
+      background-size: cover;
+      border-radius: 12px 12px 0px 0px;
+      order: 1;
+      width: 100%;
+
+      &::before {
+        border-radius: 12px 12px 0px 0px;
+      }
+    }
+
+    &-InfoContainer {
       align-items: center;
       display: flex;
       flex-direction: column;
@@ -110,7 +127,7 @@
       width: 100%;
     }
 
-    &FooterContainer {
+    &-FooterContainer {
       align-items: center;
       display: flex;
       flex-direction: column;
@@ -119,7 +136,7 @@
       width: 100%;
     }
 
-    &FooterItem {
+    &-FooterItem {
       align-items: center;
     }
   }

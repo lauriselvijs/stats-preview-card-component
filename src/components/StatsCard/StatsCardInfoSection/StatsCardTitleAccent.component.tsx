@@ -8,11 +8,9 @@ const StatsCardTitleAccent = ({ children, ...restProps }: StatsCard) => {
 
   return (
     <span
-      className={
-        clickMode
-          ? "StatsCardTitleAccent StatsCardTitleAccent_Clicked"
-          : "StatsCardTitleAccent"
-      }
+      block="StatsCard"
+      elem="TitleAccent"
+      mods={{ Clicked: clickMode }}
       {...restProps}
     >
       {children}

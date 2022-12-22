@@ -5,11 +5,7 @@ import { StatsCard } from "../../../types/StatsCard";
 import "./../StatsCard.style.scss";
 
 const StatsCardFooterTitle = ({ children, ...restProps }: StatsCard) => {
-  return (
-    <h2 className="StatsCardFooterTitle" {...restProps}>
-      {children}
-    </h2>
-  );
+  return <h2 {...restProps}>{children}</h2>;
 };
 
 export default StatsCardFooterTitle;

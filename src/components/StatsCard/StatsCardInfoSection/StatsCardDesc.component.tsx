@@ -8,9 +8,9 @@ const StatsCardDesc = ({ children, ...restProps }: StatsCard) => {
 
   return (
     <p
-      className={
-        clickMode ? "StatsCardDesc StatsCardDesc_Clicked" : "StatsCardDesc"
-      }
+      block="StatsCard"
+      elem="Desc"
+      mods={{ Clicked: clickMode }}
       {...restProps}
     >
       {children}

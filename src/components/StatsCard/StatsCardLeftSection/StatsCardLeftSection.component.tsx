@@ -4,7 +4,7 @@ import "./../StatsCard.style.scss";
 
 const StatsCardLeftSection = ({ children, ...restProps }: StatsCard) => {
   return (
-    <div className="StatsCardLeftSection" {...restProps}>
+    <div block="StatsCard" elem="LeftSection" {...restProps}>
       {children}
     </div>
   );
