@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
 
-interface IContainer {
+interface Container {
   children: ReactElement | ReactElement[];
 }

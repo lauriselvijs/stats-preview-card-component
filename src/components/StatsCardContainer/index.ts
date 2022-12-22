@@ -1,3 +1,3 @@
-import StatsCardContainer from "./StatsCardContainer.component";
+import StatsCardContainer from "./StatsCard.container";
 
 export default StatsCardContainer;

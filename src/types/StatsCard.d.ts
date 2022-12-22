@@ -1,6 +1,6 @@
 import { CSSProperties, ReactNode } from "react";
 
-export interface IStatsCard {
+export interface StatsCard {
   children?: ReactNode;
   style?: CSSProperties;
 }

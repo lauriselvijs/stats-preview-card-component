@@ -1,17 +1,15 @@
 import React from "react";
 import { useStatsCardContext } from "../../../hooks/StatsCardContext.hook";
-import { IStatsCard } from "../../../types/StatsCard";
+import { StatsCard } from "../../../types/StatsCard";
 import "./../StatsCard.style.scss";
 
-const StatsCardDesc = ({ children, ...restProps }: IStatsCard) => {
+const StatsCardDesc = ({ children, ...restProps }: StatsCard) => {
   const { clickMode } = useStatsCardContext();
 
   return (
     <p
       className={
-        clickMode
-          ? "stats-card__desc stats-card__desc--clicked-mode"
-          : "stats-card__desc"
+        clickMode ? "StatsCardDesc StatsCardDesc_Clicked" : "StatsCardDesc"
       }
       {...restProps}
     >

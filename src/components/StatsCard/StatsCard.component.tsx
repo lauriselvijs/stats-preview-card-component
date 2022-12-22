@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+
 import { StatsCardContext } from "../../context/StatCardsContext";
-import { IStatsCard } from "../../types/StatsCard";
+import { StatsCard as IStatsCard } from "../../types/StatsCard";
+
 import {
   StatsCardFooterContainer,
   StatsCardFooterItem,
@@ -15,7 +17,6 @@ import {
 } from "./StatsCardInfoSection";
 import { StatsCardLeftSection } from "./StatsCardLeftSection";
 import { StatsCardRightSection } from "./StatsCardRightSection";
-
 import "./StatsCard.style.scss";
 
 const StatsCard = ({ children, ...restProps }: IStatsCard) => {
@@ -25,9 +26,7 @@ const StatsCard = ({ children, ...restProps }: IStatsCard) => {
     <StatsCardContext.Provider value={{ clickMode, setClickMode }}>
       <div
         title="Click me!"
-        className={
-          clickMode ? "stats-card stats-card--clicked-mode" : "stats-card"
-        }
+        className={clickMode ? "StatsCard StatsCard_Clicked" : "StatsCard"}
         {...restProps}
         onClick={() => setClickMode(!clickMode)}
       >

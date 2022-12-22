@@ -1,10 +1,12 @@
 import React from "react";
-import { IStatsCard } from "../../../types/StatsCard";
+
+import { StatsCard } from "../../../types/StatsCard";
+
 import "./../StatsCard.style.scss";
 
-const StatsCardFooterItem = ({ children, ...restProps }: IStatsCard) => {
+const StatsCardFooterItem = ({ children, ...restProps }: StatsCard) => {
   return (
-    <div className="stats-card__footer-item" {...restProps}>
+    <div className="StatsCardFooterItem" {...restProps}>
       {children}
     </div>
   );

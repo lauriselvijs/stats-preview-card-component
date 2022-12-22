@@ -5,6 +5,7 @@ import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
 import CopyPlugin from "copy-webpack-plugin";
 import ESLintPlugin from "eslint-webpack-plugin";
+import webpack from "webpack";
 
 const devServer: DevServerConfiguration = {
   static: {
@@ -81,6 +82,11 @@ const config: Configuration = {
       extensions: ["js", "jsx", "ts", "tsx"],
     }),
     new HotModuleReplacementPlugin(),
+    // new webpack.DefinePlugin({
+    //   "process.env": {
+    //     NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+    //   },
+    // }),
   ],
   devtool: "source-map",
   devServer,

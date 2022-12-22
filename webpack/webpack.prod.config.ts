@@ -7,6 +7,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import WebpackAssetsManifest from "webpack-assets-manifest";
 import ESLintPlugin from "eslint-webpack-plugin";
+import webpack from "webpack";
 
 const config: Configuration = {
   mode: "production",
@@ -80,6 +81,11 @@ const config: Configuration = {
       extensions: ["js", "jsx", "ts", "tsx"],
     }),
     new CleanWebpackPlugin(),
+    // new webpack.DefinePlugin({
+    //   "process.env": {
+    //     NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+    //   },
+    // }),
   ],
 };
 

@@ -1,17 +1,17 @@
 import React from "react";
 import { useStatsCardContext } from "../../../hooks/StatsCardContext.hook";
-import { IStatsCard } from "../../../types/StatsCard";
+import { StatsCard } from "../../../types/StatsCard";
 import "./../StatsCard.style.scss";
 
-const StatsCardTitleAccent = ({ children, ...restProps }: IStatsCard) => {
+const StatsCardTitleAccent = ({ children, ...restProps }: StatsCard) => {
   const { clickMode } = useStatsCardContext();
 
   return (
     <span
       className={
         clickMode
-          ? "stats-card__title-accent stats-card__title-accent--clicked-mode"
-          : "stats-card__title-accent"
+          ? "StatsCardTitleAccent StatsCardTitleAccent_Clicked"
+          : "StatsCardTitleAccent"
       }
       {...restProps}
     >

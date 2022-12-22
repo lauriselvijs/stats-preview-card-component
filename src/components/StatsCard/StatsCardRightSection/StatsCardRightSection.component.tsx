@@ -1,10 +1,10 @@
 import React from "react";
-import { IStatsCard } from "../../../types/StatsCard";
+import { StatsCard } from "../../../types/StatsCard";
 import "./../StatsCard.style.scss";
 
-const StatsCardRightSection = ({ children, ...restProps }: IStatsCard) => {
+const StatsCardRightSection = ({ children, ...restProps }: StatsCard) => {
   return (
-    <div className="stats-card__right-section" {...restProps}>
+    <div className="StatsCardRightSection" {...restProps}>
       {children}
     </div>
   );

@@ -1,6 +1,11 @@
 main {
-  margin: 100px;
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin: 100px;
+  transition: all 0.5s;
+
+  @include mobile {
+    margin: 10px 0;
+  }
 }
