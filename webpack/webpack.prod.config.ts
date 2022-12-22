@@ -5,9 +5,10 @@ import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CopyPlugin from "copy-webpack-plugin";
-import WebpackAssetsManifest from "webpack-assets-manifest";
 import ESLintPlugin from "eslint-webpack-plugin";
 import webpack from "webpack";
+import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
+import CompressionPlugin from "compression-webpack-plugin";
 
 const config: Configuration = {
   mode: "production",
@@ -40,13 +41,13 @@ const config: Configuration = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        test: /\.css$/i,
-        // use: ["style-loader", "css-loader"] if no need for separate css file
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-      {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024,
+          },
+        },
       },
     ],
   },
@@ -58,7 +59,6 @@ const config: Configuration = {
       filename: "./index.html",
       template: "./public/index.html",
       favicon: "./public/favicon-32x32.png",
-      manifest: "./public/manifest.json",
     }),
     new MiniCssExtractPlugin({
       filename: "static/css/main.[contenthash].css",
@@ -70,9 +70,6 @@ const config: Configuration = {
         { from: "./public/logo192.png", to: "./" },
         { from: "./public/logo512.png", to: "./" },
       ],
-    }),
-    new WebpackAssetsManifest({
-      output: "asset-manifest.json",
     }),
     new ForkTsCheckerWebpackPlugin({
       async: false,
@@ -87,6 +84,23 @@ const config: Configuration = {
         REBEM_MOD_DELIM: JSON.stringify("_"),
         REBEM_ELEM_DELIM: JSON.stringify("-"),
       },
+    }),
+    new ImageMinimizerPlugin({
+      minimizer: {
+        implementation: ImageMinimizerPlugin.imageminMinify,
+        options: {
+          plugins: [
+            ["jpegtran", { progressive: true }],
+            ["optipng", { optimizationLevel: 5 }],
+          ],
+        },
+      },
+    }),
+    new CompressionPlugin({
+      algorithm: "brotliCompress",
+      // algorithm: "gzip",
+      // deleteOriginalAssets: true,
+      threshold: 1 * 1024,
     }),
   ],
 };

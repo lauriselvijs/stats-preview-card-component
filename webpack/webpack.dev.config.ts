@@ -1,5 +1,5 @@
 import path from "path";
-import { Configuration, HotModuleReplacementPlugin } from "webpack";
+import { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
@@ -73,7 +73,6 @@ const config: Configuration = {
     new ESLintPlugin({
       extensions: ["js", "jsx", "ts", "tsx"],
     }),
-    new HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),

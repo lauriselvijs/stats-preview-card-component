@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Stats Card",
+  "name": "Stats Preview Card",
   "icons": [
     {
       "src": "favicon-32x32.png",
