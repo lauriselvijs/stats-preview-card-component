@@ -1,12 +1,10 @@
 version: "3"
 services:
   react-app:
-    build: ./
+    build: Dockerfile.dev
     container_name: stats-preview-card-component
     ports:
       - 3000:3000
     volumes:
       - ./:/app
-      - ./app/node_modules
-    stdin_open: true
-    tty: true
+      - /app/node_modules

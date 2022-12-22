@@ -9,6 +9,7 @@ const StatsCardRightSection = ({ children, ...restProps }: StatsCard) => {
 
   return (
     <div
+      aria-label="Click to change theme"
       block="StatsCard"
       elem="RightSection"
       title="Click me!"
