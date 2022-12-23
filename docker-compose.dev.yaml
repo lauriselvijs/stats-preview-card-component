@@ -1,7 +1,9 @@
 version: "3"
 services:
-  react-app:
-    build: Dockerfile.dev
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     container_name: stats-preview-card-component
     ports:
       - 3000:3000

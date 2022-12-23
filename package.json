@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "docker:dev-up": "docker-compose -f *.dev.yml up",
-    "docker:dev-down": "docker-compose -f *.dev.yml down",
-    "docker:dev-build": "docker-compose -f *.dev.yml build",
-    "docker:dev-client-shell": "docker-compose -f *.dev.yml exec client sh",
+    "docker:dev-up": "docker-compose -f *.dev.yaml up",
+    "docker:dev-down": "docker-compose -f *.dev.yaml down",
+    "docker:dev-build": "docker-compose -f *.dev.yaml build",
+    "docker:dev-client-shell": "docker-compose -f *.dev.yaml exec client sh",
     "start": "NODE_ENV=development webpack serve --config webpack/webpack.dev.config.ts",
     "build": "NODE_ENV=production webpack --config webpack/webpack.prod.config.ts"
   },
