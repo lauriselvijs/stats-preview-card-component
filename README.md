@@ -9,10 +9,10 @@ This is a solution to the [Stats preview card component challenge on Frontend Me
   - [Overview](#overview)
     - [The challenge](#the-challenge)
     - [Screenshot](#screenshot)
-    - [Links](#links)
   - [Installation](#installation)
     - [Steps to Setup](#steps-to-setup)
     - [Steps to Run](#steps-to-run)
+    - [Links](#links)
   - [My process](#my-process)
     - [Built with](#built-with)
     - [What I learned](#what-i-learned)
@@ -67,34 +67,31 @@ Users should be able to:
 Using BEM methodology to improve css reusability
 
 ```scss
-.stats-card {
-  display: flex;
-  justify-content: center;
+.StatsCard {
   align-items: center;
-
-  border-radius: 12px;
-
-  width: 1100px;
-  height: 446px;
   background-color: var(--primary-color);
+  border-radius: 12px;
+  display: flex;
+  height: 446px;
+  justify-content: center;
+  width: max-content;
 
-  transition: width 1s, height 1s;
-
-  &--clicked-mode {
-    color: var(--primary-dark-color);
+  &_Clicked {
     background-color: var(--primary-light-color);
+    color: var(--primary-dark-color);
   }
 
-  &__left-section {
-    padding-left: 65px;
-    height: 100%;
-    width: 50%;
+  &-LeftSection {
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
     gap: 80px;
+    height: 100%;
+    justify-content: center;
+    padding-left: 65px;
+    width: 50%;
   }
+}
 ```
 
 Using compound components pattern to improve react component reusability
@@ -105,14 +102,7 @@ const StatsCard = ({ children, ...restProps }: IStatsCard) => {
 
   return (
     <StatsCardContext.Provider value={{ clickMode, setClickMode }}>
-      <div
-        title="Click me!"
-        className={
-          clickMode ? "stats-card stats-card--clicked-mode" : "stats-card"
-        }
-        {...restProps}
-        onClick={() => setClickMode(!clickMode)}
-      >
+      <div block="StatsCard" mods={{ Clicked: clickMode }} {...restProps}>
         {children}
       </div>
     </StatsCardContext.Provider>

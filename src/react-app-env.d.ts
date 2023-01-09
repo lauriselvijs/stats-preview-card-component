@@ -20,6 +20,6 @@ declare module "react" {
     block?: string;
     elem?: string;
     mods?: { [key: string]: boolean };
-    mix?: { [key in "block" | "elem"]: string };
+    mix?: { [key in "block"]: string };
   }
 }
