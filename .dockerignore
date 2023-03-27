@@ -6,3 +6,11 @@
 
 # production
 /build
+
+# misc
+.env
+
+# docker
+.dockerignore
+Dockerfile.dev
+docker-compose.dev.yml

@@ -1,15 +1,27 @@
-FROM node:14-bullseye-slim
+ARG NODE_VERSION=18
 
+# we will use node docker image
+FROM node:${NODE_VERSION}-alpine
+
+# set /app as work directory
 WORKDIR /app
 
+RUN apk --no-cache add pkgconfig autoconf automake libtool nasm build-base zlib-dev
+
+# copy package.json and package-lock.json to work directory, so that we install npm dependencies
 COPY package*.json ./
 
-RUN npm install
+# install npm dependencies
+# OR `RUN yarn install`
+RUN npm install 
 
 RUN mkdir ./node_modules/.cache && chmod -R 777 ./node_modules/.cache
 
+# copy your project files to work directory
 COPY . .
- 
+
 EXPOSE 3000
 
+# run your app
+ # OR CMD ['yarn', 'run', 'start']
 CMD ["npm", "start"]
