@@ -1,4 +1,3 @@
-import React from "react";
 import Footer from "../Footer";
 import StatsCardContainer from "../StatsCard/StatsCardContainer";
 import StatsCard from "../StatsCard";

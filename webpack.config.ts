@@ -1,5 +1,5 @@
 import path from "path";
-import * as dotenv from "dotenv";
+// import * as dotenv from "dotenv";
 import { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
@@ -11,7 +11,7 @@ import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
 import CompressionPlugin from "compression-webpack-plugin";
 import webpack from "webpack";
 
-dotenv.config();
+// dotenv.config();
 
 // const isProduction = process.env.NODE_ENV === "production";
 const isProduction = false;
