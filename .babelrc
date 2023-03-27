@@ -10,12 +10,12 @@
     "@babel/preset-typescript"
   ],
   "plugins": [
+    "transform-rebem-jsx",
     [
       "@babel/plugin-transform-runtime",
       {
         "regenerator": true
       }
-    ],
-    "transform-rebem-jsx"
+    ]
   ]
 }

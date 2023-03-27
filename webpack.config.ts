@@ -103,6 +103,9 @@ const config: Configuration = {
         { from: "./public/logo512.png", to: "./" },
       ],
     }),
+    new ESLintPlugin({
+      extensions: ["js", "jsx", "ts", "tsx"],
+    }),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
       "process.env.REBEM_MOD_DELIM": JSON.stringify("_"),
@@ -110,9 +113,6 @@ const config: Configuration = {
     }),
     ...(!isProduction
       ? [
-          new ESLintPlugin({
-            extensions: ["js", "jsx", "ts", "tsx"],
-          }),
           new ForkTsCheckerWebpackPlugin({
             async: false,
           }),

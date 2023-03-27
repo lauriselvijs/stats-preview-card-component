@@ -5,8 +5,6 @@ import "./../StatsCard.style.scss";
 const StatsCardTitleAccent = ({ children, ...restProps }: StatsCard) => {
   const { clickMode } = useStatsCardContext();
 
-  console.log(process.env.NODE_ENV);
-
   return (
     <span
       block="StatsCard"
