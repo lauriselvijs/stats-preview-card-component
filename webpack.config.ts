@@ -1,5 +1,5 @@
 import path from "path";
-// import * as dotenv from "dotenv";
+import * as dotenv from "dotenv";
 import { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
@@ -11,10 +11,9 @@ import ImageMinimizerPlugin from "image-minimizer-webpack-plugin";
 import CompressionPlugin from "compression-webpack-plugin";
 import webpack from "webpack";
 
-// dotenv.config();
+dotenv.config();
 
-// const isProduction = process.env.NODE_ENV === "production";
-const isProduction = false;
+const isProduction = process.env.NODE_ENV === "production";
 
 const devServer: DevServerConfiguration = {
   static: {
@@ -105,11 +104,9 @@ const config: Configuration = {
       ],
     }),
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        REBEM_MOD_DELIM: JSON.stringify("_"),
-        REBEM_ELEM_DELIM: JSON.stringify("-"),
-      },
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+      "process.env.REBEM_MOD_DELIM": JSON.stringify("_"),
+      "process.env.REBEM_ELEM_DELIM": JSON.stringify("-"),
     }),
     ...(!isProduction
       ? [
