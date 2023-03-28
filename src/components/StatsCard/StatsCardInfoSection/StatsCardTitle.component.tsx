@@ -1,3 +1,4 @@
+import React from "react";
 import { StatsCard } from "../../../types/StatsCard";
 import "./../StatsCard.style.scss";
 
