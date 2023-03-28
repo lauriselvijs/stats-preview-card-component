@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { StatsCardContext } from "../../context/StatCardsContext";
 import { StatsCard as IStatsCard } from "../../types/StatsCard";

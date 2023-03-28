@@ -4,9 +4,12 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "react-hooks"],
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
   "extends": [
+    "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {

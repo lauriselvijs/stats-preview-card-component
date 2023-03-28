@@ -1,4 +1,3 @@
-import React from "react";
 import { useStatsCardContext } from "../../../hooks/StatsCardContext.hook";
 
 import { StatsCard } from "../../../types/StatsCard";
