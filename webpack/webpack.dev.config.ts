@@ -8,8 +8,6 @@ import ESLintPlugin from "eslint-webpack-plugin";
 import webpack from "webpack";
 
 const devServer: DevServerConfiguration = {
-  historyApiFallback: true,
-  compress: true,
   open: true,
   port: 3000,
 };
