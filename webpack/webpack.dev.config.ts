@@ -9,11 +9,9 @@ import webpack from "webpack";
 
 const devServer: DevServerConfiguration = {
   static: {
-    directory: path.join(__dirname, "src"),
+    directory: path.resolve(__dirname, "..", "./src"),
   },
-  historyApiFallback: {
-    index: "build/index.html",
-  },
+  historyApiFallback: true,
   compress: true,
   open: true,
   port: 3000,
@@ -21,36 +19,31 @@ const devServer: DevServerConfiguration = {
 
 const config: Configuration = {
   mode: "development",
-  output: {
-    publicPath: "/",
-  },
   entry: path.resolve(__dirname, "..", "./src/index.tsx"),
   module: {
     rules: [
       {
         test: /\.(ts|js)x?$/i,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: "babel-loader",
       },
       {
         test: /\.(s(a|c)ss)$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.css$/i,
-        // use: ["style-loader", "css-loader"] if no need for separate css file
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        test: /\.(svg|png|jpg|jpeg|gif)$/i,
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024,
+          },
+        },
       },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", "jsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -74,11 +67,9 @@ const config: Configuration = {
       extensions: ["js", "jsx", "ts", "tsx"],
     }),
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        REBEM_MOD_DELIM: JSON.stringify("_"),
-        REBEM_ELEM_DELIM: JSON.stringify("-"),
-      },
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+      "process.env.REBEM_MOD_DELIM": JSON.stringify("_"),
+      "process.env.REBEM_ELEM_DELIM": JSON.stringify("-"),
     }),
   ],
   devtool: "source-map",

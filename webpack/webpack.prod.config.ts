@@ -1,8 +1,6 @@
 import path from "path";
 import { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import ESLintPlugin from "eslint-webpack-plugin";
@@ -14,7 +12,7 @@ const config: Configuration = {
   mode: "production",
   entry: path.resolve(__dirname, "..", "./src/index.tsx"),
   output: {
-    path: path.resolve(__dirname, "..", "dist"),
+    path: path.resolve(__dirname, "..", "./dist"),
     filename: "static/js/main.[contenthash].js",
     clean: true,
     assetModuleFilename: "static/media/[name].[contenthash][ext]",
@@ -25,36 +23,15 @@ const config: Configuration = {
       {
         test: /\.(ts|js)x?$/i,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: [
-              "@babel/preset-env",
-              "@babel/preset-react",
-              "@babel/preset-typescript",
-            ],
-          },
-        },
+        use: "babel-loader",
       },
       {
         test: /\.(s(a|c)ss)$/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-          },
-          {
-            loader: "postcss-loader",
-          },
-          {
-            loader: "resolve-url-loader",
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
         ],
       },
       {
@@ -69,13 +46,14 @@ const config: Configuration = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", "jsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: "./index.html",
       template: "./public/index.html",
       favicon: "./public/favicon-32x32.png",
+      manifest: "./public/manifest.json",
     }),
     new MiniCssExtractPlugin({
       filename: "static/css/main.[contenthash].css",
@@ -88,19 +66,13 @@ const config: Configuration = {
         { from: "./public/logo512.png", to: "./" },
       ],
     }),
-    new ForkTsCheckerWebpackPlugin({
-      async: false,
-    }),
     new ESLintPlugin({
       extensions: ["js", "jsx", "ts", "tsx"],
     }),
-    new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        REBEM_MOD_DELIM: JSON.stringify("_"),
-        REBEM_ELEM_DELIM: JSON.stringify("-"),
-      },
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+      "process.env.REBEM_MOD_DELIM": JSON.stringify("_"),
+      "process.env.REBEM_ELEM_DELIM": JSON.stringify("-"),
     }),
     new ImageMinimizerPlugin({
       minimizer: {
@@ -114,9 +86,7 @@ const config: Configuration = {
       },
     }),
     new CompressionPlugin({
-      algorithm: "brotliCompress",
-      // algorithm: "gzip",
-      // deleteOriginalAssets: true,
+      algorithm: "gzip",
       threshold: 1 * 1024,
     }),
   ],
