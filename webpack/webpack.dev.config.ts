@@ -8,9 +8,6 @@ import ESLintPlugin from "eslint-webpack-plugin";
 import webpack from "webpack";
 
 const devServer: DevServerConfiguration = {
-  static: {
-    directory: path.resolve(__dirname, "..", "./src"),
-  },
   historyApiFallback: true,
   compress: true,
   open: true,
